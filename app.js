@@ -4,6 +4,9 @@ require('dotenv').config({path: '.env' })
 const PORT = process.env.PORT || 3000
 const path = require('path')
 
+//Configuración de Conexion
+require('./config/db');
+
 //Levantamiento del Servidor
 app.listen(PORT, ()=>{
     console.log(`Servidor encendido on port: ${PORT}`);

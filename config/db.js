@@ -1,11 +1,21 @@
-const Sequelize = require('sequelize');
+/* const Sequelize = require('sequelize');
+const courseModel = require('../models/course');
 require('dotenv').config({path: '.env'});
 const sequelize = new Sequelize(process.env.DB_DATABASE, process.env.DB_USER, process.env.DB_password, {
   host: process.env.DB_HOST,
   dialect: 'mysql'
+});
+
+const course = courseModel(Sequelize, sequelize);
+
+sequelize.sync({ force: false})
+.then(()=>{
+  console.log('Tablas sincronizadas')
 })
 
-/* const { Pool } = require('pg');
+module.exports = db */
+
+const { Pool } = require('pg');
 require('dotenv').config({path: '.env'});
 
 const db = new Pool({
@@ -17,4 +27,4 @@ const db = new Pool({
   
   db.connect();
   
-  module.exports = db; */
+  module.exports = db;
