@@ -1,4 +1,6 @@
-const config = require('../config/db');
-const courseModel = require('../models/course');
+const config = require('../database/db')
+const courseModel = require('../models/Course');
+
+
 
 
