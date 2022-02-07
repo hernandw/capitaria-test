@@ -1,4 +1,11 @@
-const { Pool } = require('pg');
+const Sequelize = require('sequelize');
+require('dotenv').config({path: '.env'});
+const sequelize = new Sequelize(process.env.DB_DATABASE, process.env.DB_USER, process.env.DB_password, {
+  host: process.env.DB_HOST,
+  dialect: 'mysql'
+})
+
+/* const { Pool } = require('pg');
 require('dotenv').config({path: '.env'});
 
 const db = new Pool({
@@ -10,4 +17,4 @@ const db = new Pool({
   
   db.connect();
   
-  module.exports = db;
+  module.exports = db; */

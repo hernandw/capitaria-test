@@ -11,6 +11,10 @@ app.listen(PORT, ()=>{
     //Archivos Estaticos
 app.use(express.static(__dirname + '/public'));
 
+//Middlewares
+app.use(express.urlencoded({ extended: true}))
+app.use(express.json());
+
 //Rutas
 app.use(require('./routes'));
 
