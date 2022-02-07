@@ -24,7 +24,7 @@ app.listen(PORT, ()=>{
 app.use(express.static(__dirname + '/public'));
 
 //Middlewares
-app.use(express.urlencoded({ extended: true}))
+app.use(express.urlencoded({ extended: false}))
 app.use(express.json());
 
 //Rutas

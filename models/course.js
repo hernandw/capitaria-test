@@ -3,7 +3,10 @@ const sequelize = require('../database/db');
 
 class Course extends Model {}
 Course.init({
-    name: DataTypes.STRING
+    name: {
+        type: DataTypes.STRING(50),
+        allowNull: false,
+    }
 },{
     sequelize,
     timestamps: false,
