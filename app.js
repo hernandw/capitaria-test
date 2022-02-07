@@ -1,13 +1,13 @@
 const express = require('express');
 const app = express();
-require('dotenv').config({path: '.env' })
 const PORT = process.env.PORT || 3000
 const path = require('path')
 const sequelize = require('./database/db')
 
 
-//Configuración de Conexion
-require('./config/config');
+//Creación de las tablas
+require('./models/Associations');
+
 
 //Levantamiento del Servidor
 app.listen(PORT, ()=>{
@@ -28,6 +28,6 @@ app.use(express.urlencoded({ extended: false}))
 app.use(express.json());
 
 //Rutas
-app.use(require('./routes/routes'));
+app.use(require('./routes/routesStudent'));
 
 module.exports = app;
