@@ -9,15 +9,15 @@ const Student = require('../models/Student'); //Ruta al Modelo
 router.post('/student', studentController.createStudent);
 
 //Ruta para consultar los estudiantes
-router.get('/getstudent', studentController.getStudent)
+router.get('/student', studentController.getStudent)
 
 //Ruta para consultar los estudiantes
-router.get('/getstudent/:id', studentController.getOneStudent);
+router.get('/student/:id', studentController.getOneStudent);
 
 //Ruta para eliminar un estudiante
 router.delete('/student/:id', studentController.deleteStudent)
 
 //Ruta para actualizar
-router.put('/updatestudent/:id', studentController.updateStudent);
+router.put('/student/:id', studentController.updateStudent);
 
 module.exports = router

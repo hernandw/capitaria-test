@@ -61,14 +61,13 @@ exports.getOneStudent = async (req, res) => {
   }
 };
 
-
 //controlador para eliminar estudiante
 exports.deleteStudent = async (req, res) => {
   const { id } = req.params;
   try {
     const deleteRowCount = await Student.destroy({
       where: {
-        id
+        id,
       },
     });
     res.json({
@@ -76,35 +75,41 @@ exports.deleteStudent = async (req, res) => {
       Count: deleteRowCount,
     });
   } catch (error) {
-    message: 'Error para eliminar ' + error
-    data: {}
+    message: "Error para eliminar " + error;
+    data: {
+    }
   }
 };
 
-
 //Controlador para actualizar estudiante
 exports.updateStudent = async (req, res) => {
-  const { id } = req.params;
   const { name, lastname } = req.body;
+  const { id } = req.params;
   try {
     const students = await Student.findAll({
-      attributes:['id', 'name', 'lastname'],
       where: {
-        id
+        id,
       },
     });
-    if(students.length > 0) {
-      students.forEach(async (student) => {
-        await Student.update({
-          name,
-          lastname
-        });
+    if (students.length > 0) {
+      students.forEach(async (students) => {
+        await Student.update(
+          {
+            name,
+            lastname,
+          },
+          {
+            where: {
+              id,
+            },
+          }
+        )
+        
+      });
+      return res.json({
+        message: "Proyecto Actualizado Correctamente"
       });
     }
-    return res.json({
-      message: "Proyecto Actualizado Correctamente",
-      data: students
-    });
   } catch (error) {
     message: "Error para actualizar " + error;
     data: {
