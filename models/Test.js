@@ -8,18 +8,13 @@ Test.init(
       type: DataTypes.STRING(60),
       allowNull: false,
       validate: {
-        
-        isAlpha: {
-          args: true,
-          msg: "El nombre solo puede contener letras",
-        },
-        len: {
+          len: {
           args: [3, 60],
           msg: "El nombre tiene que ser entre 3 y 60 caracteres",
         },
       },
     },
-    courseId: {
+    courseid: {
       type: DataTypes.INTEGER
     }
   },

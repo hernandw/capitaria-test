@@ -7,17 +7,17 @@ const Course_test = require('./course_test')
 
 
 //Los profesores pueden tener muchos cursos
-Teacher.hasMany(Course, { foreignKey: 'teacherId', sourceKey: 'id'});
-Course.belongsTo(Teacher, { foreignKey: 'teacherId', sourceKey: 'id'});
+Teacher.hasMany(Course, { foreignKey: 'teacherid', sourceKey: 'id'});
+Course.belongsTo(Teacher, { foreignKey: 'teacherid', sourceKey: 'id'});
 
 //Tablas Asociadas
 Student.hasOne(Student_course);
 Course.hasOne(Student_course);
 
 //Los cursos tienen muchas pruebas
-Course.hasMany(Test, { foreignKey: 'courseId', sourceKey: 'id'})
-Test.belongsTo(Course, { foreignKey: 'courseId', sourceKey: 'id'});
+Course.hasMany(Test, { foreignKey: 'courseid', sourceKey: 'id'})
+Test.belongsTo(Course, { foreignKey: 'courseid', sourceKey: 'id'});
 
 //Tablas Asociadas
-Student.hasOne(Course_test);
-Test.hasOne(Course_test);
+Student.hasOne(Course_test, { foreignKey: 'studentid', sourceKey: 'id'});
+Test.hasOne(Course_test, { foreignKey: 'testid', sourceKey: 'id'});

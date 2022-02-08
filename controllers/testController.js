@@ -1,13 +1,13 @@
 const config = require("../database/db");
 require("../models/Associations");
-const Student = require("../models/Student");
+const Test = require("../models/Test");
 
-//Ruta para consultar estudiantes
-exports.getStudent = async (req, res) => {
+//Ruta para consultar pruebas
+exports.getTest = async (req, res) => {
   try {
-    const getStudent = await Student.findAll();
+    const getTest = await Test.findAll();
     res.json({
-      data: getStudent,
+      data: getTest,
     });
   } catch (error) {
     console.log(error);
@@ -17,39 +17,39 @@ exports.getStudent = async (req, res) => {
   }
 };
 
-//Controlador de la ruta crear estudiante
-exports.createStudent = async (req, res) => {
-  const { name, lastname } = req.body;
+//Controlador de la ruta crear Test
+exports.createTest = async (req, res) => {
+  const { name, courseId} = req.body;
   try {
-    const newStudent = await Student.create({
+    const newTest = await Test.create({
       name,
-      lastname,
+      courseId,
     });
-    if (newStudent) {
+    if (newTest) {
       return res.json({
-        message: "Estudiante creado correctamente",
-        data: newStudent,
+        message: "Test creado correctamente",
+        data: newTest,
       });
     }
   } catch (error) {
     res.status(500).json({
-      message: "Algo ha salido mal " +error,
+      message: "Algo ha salido mal " + error,
       data: {},
     });
   }
 };
 
-//Controlador para consultar un estudiante
-exports.getOneStudent = async (req, res) => {
+//Controlador para consultar una prueba
+exports.getOneTest = async (req, res) => {
   const { id } = req.params;
   try {
-    const student = await Student.findOne({
+    const Test = await Test.findOne({
       where: {
         id,
       },
     });
     res.json({
-      data: student,
+      data: Test,
     });
   } catch (error) {
     console.log(error);
@@ -60,17 +60,17 @@ exports.getOneStudent = async (req, res) => {
   }
 };
 
-//controlador para eliminar estudiante
-exports.deleteStudent = async (req, res) => {
+//controlador para eliminar prueba
+exports.deleteTest = async (req, res) => {
   const { id } = req.params;
   try {
-    const deleteRowCount = await Student.destroy({
+    const deleteRowCount = await Test.destroy({
       where: {
         id,
       },
     });
     res.json({
-      message: "Estudiante Eliminado Correctamente",
+      message: "Prueba Eliminada Correctamente",
       Count: deleteRowCount,
     });
   } catch (error) {
@@ -81,21 +81,21 @@ exports.deleteStudent = async (req, res) => {
 };
 
 //Controlador para actualizar estudiante
-exports.updateStudent = async (req, res) => {
-  const { name, lastname } = req.body;
+exports.updateTest = async (req, res) => {
+  const { name, courseId } = req.body;
   const { id } = req.params;
   try {
-    const students = await Student.findAll({
+    const Tests = await Test.findAll({
       where: {
         id,
       },
     });
-    if (students.length > 0) {
-      students.forEach(async (students) => {
-        await Student.update(
+    if (Tests.length > 0) {
+      Tests.forEach(async (Tests) => {
+        await Test.update(
           {
             name,
-            lastname,
+            courseId,
           },
           {
             where: {
@@ -105,7 +105,7 @@ exports.updateStudent = async (req, res) => {
         );
       });
       return res.json({
-        message: "Estudiante Actualizado Correctamente",
+        message: "prueba Actualizada Correctamente",
       });
     }
   } catch (error) {

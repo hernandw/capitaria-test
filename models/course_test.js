@@ -20,6 +20,12 @@ Course_test.init({
           },
         },
       },
+      studentid: {
+        type: DataTypes.INTEGER,
+      },
+      testid: {
+        type: DataTypes.INTEGER,
+      }
 },{
     sequelize,
     timestamps: false,

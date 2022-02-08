@@ -1,13 +1,13 @@
 const config = require("../database/db");
 require("../models/Associations");
-const Student = require("../models/Student");
+const Teacher = require("../models/Teacher");
 
 //Ruta para consultar estudiantes
-exports.getStudent = async (req, res) => {
+exports.getTeacher = async (req, res) => {
   try {
-    const getStudent = await Student.findAll();
+    const getTeacher = await Teacher.findAll();
     res.json({
-      data: getStudent,
+      data: getTeacher,
     });
   } catch (error) {
     console.log(error);
@@ -17,60 +17,60 @@ exports.getStudent = async (req, res) => {
   }
 };
 
-//Controlador de la ruta crear estudiante
-exports.createStudent = async (req, res) => {
+//Controlador de la ruta crear profesores
+exports.createTeacher = async (req, res) => {
   const { name, lastname } = req.body;
   try {
-    const newStudent = await Student.create({
+    const newTeacher = await Teacher.create({
       name,
       lastname,
     });
-    if (newStudent) {
+    if (newTeacher) {
       return res.json({
-        message: "Estudiante creado correctamente",
-        data: newStudent,
+        message: "Profesor creado correctamente",
+        data: newTeacher,
       });
     }
   } catch (error) {
     res.status(500).json({
-      message: "Algo ha salido mal " +error,
+      message: "Algo ha salido mal " + error,
       data: {},
     });
   }
 };
 
 //Controlador para consultar un estudiante
-exports.getOneStudent = async (req, res) => {
+exports.getOneTeacher = async (req, res) => {
   const { id } = req.params;
   try {
-    const student = await Student.findOne({
+    const Teacher = await Teacher.findOne({
       where: {
         id,
       },
     });
     res.json({
-      data: student,
+      data: Teacher,
     });
   } catch (error) {
     console.log(error);
     res.status(404).json({
-      message: "Algo ha salido mal " +error,
+      message: "Algo ha salido mal " + error,
       data: {},
     });
   }
 };
 
 //controlador para eliminar estudiante
-exports.deleteStudent = async (req, res) => {
+exports.deleteTeacher = async (req, res) => {
   const { id } = req.params;
   try {
-    const deleteRowCount = await Student.destroy({
+    const deleteRowCount = await Teacher.destroy({
       where: {
         id,
       },
     });
     res.json({
-      message: "Estudiante Eliminado Correctamente",
+      message: "Profesor Eliminado Correctamente",
       Count: deleteRowCount,
     });
   } catch (error) {
@@ -81,18 +81,18 @@ exports.deleteStudent = async (req, res) => {
 };
 
 //Controlador para actualizar estudiante
-exports.updateStudent = async (req, res) => {
+exports.updateTeacher = async (req, res) => {
   const { name, lastname } = req.body;
   const { id } = req.params;
   try {
-    const students = await Student.findAll({
+    const Teachers = await Teacher.findAll({
       where: {
         id,
       },
     });
-    if (students.length > 0) {
-      students.forEach(async (students) => {
-        await Student.update(
+    if (Teachers.length > 0) {
+      Teachers.forEach(async (Teachers) => {
+        await Teacher.update(
           {
             name,
             lastname,
@@ -105,7 +105,7 @@ exports.updateStudent = async (req, res) => {
         );
       });
       return res.json({
-        message: "Estudiante Actualizado Correctamente",
+        message: "Profesor Actualizado Correctamente",
       });
     }
   } catch (error) {

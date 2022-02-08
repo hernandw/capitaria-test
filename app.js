@@ -29,6 +29,11 @@ app.use(express.json());
 
 //Rutas
 app.use(require('./routes/student'));
+app.use(require('./routes/test'));
+app.use(require('./routes/teacher'));
+app.use(require('./routes/course'));
+app.use(require('./routes/course_test'));
+
 
 
 module.exports = app;

@@ -7,7 +7,7 @@ Course.init({
         type: DataTypes.STRING(50),
         allowNull: false,
     },
-    teacherId: {
+    teacherid: {
         type: DataTypes.INTEGER
     }
 },{
