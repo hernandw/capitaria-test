@@ -24,11 +24,13 @@ Se utilizaron
 
 - Nodemon: para ejecutar los cambios en vivo del servidor
 
-Se trabajpo bajo el modelo MVC, creando un carpeta para los modelos o tablas.
 
-Carpeta Controller: Para manejar las peticiones y actua de intermediario entre la vista y el modelo
+Se trabajó bajo el modelo MVC, creando un carpeta para los modelos o tablas.
+
+Carpeta Controller: Para manejar las peticiones y actuar de intermediario entre la vista y el modelo
 
 Vistas: No se realizaron, pero pensaba hacerlas en HBS (Express-Handlebars)
+
 
 Carpeta Routes: Se trabajó con una ruta para cada modelo.
 
