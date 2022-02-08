@@ -1,0 +1,91 @@
+prueba_capitaria
+
+
+crearEstudiantes
+http://localhost:3000/student
+
+
+json
+{
+  "name": "Laura",
+  "lastname": "Sanchez"
+}
+GET
+consultarEstudiantes
+http://localhost:3000/student/
+
+
+{
+  "name": "Yessenia",
+  "lastname": "Ortunio"
+}
+PUT
+editarEstudiante
+http://localhost:3000/student/2
+
+
+{
+  "name": "Lorena",
+  "lastname": "Robles"
+}
+DEL
+eliminarEstudiante
+http://localhost:3000/student/2
+
+
+crearProfesores
+http://localhost:3000/teacher
+Crear Profesores
+
+
+{
+  "name": "Manuel",
+  "lastname": "ortunio"
+}
+GET
+consultarProfesores
+http://localhost:3000/teacher
+
+
+
+eliminarProfesores
+http://localhost:3000/teacher/2
+
+
+editarProfesores
+http://localhost:3000/teacher/2
+
+
+{
+  "name": "Carla",
+  "lastname": "Silva"
+}
+
+
+POST
+crearCurso
+http://localhost:3000/course/
+
+
+{
+  "name": "segundo basico",
+  "teacherId": 3
+}
+GET
+consultarCursos
+http://localhost:3000/course/
+
+
+PUT
+editarCurso
+http://localhost:3000/course/2
+
+
+{
+  "name": "primero basico",
+  "teacherId": 3
+}
+
+GET
+consultarPrueba
+http://localhost:3000/test/
