@@ -1,37 +1,113 @@
-const config = require('../database/db');
-require('../models/Associations');
-const Student = require('../models/Student')
+const { json } = require("express/lib/response");
+const config = require("../database/db");
+require("../models/Associations");
+const Student = require("../models/Student");
 
-
-exports.home = async (req, res) => {
-  res.send('Pagina Cargada Correctamente');
-}
-
-//Controlador para crear estudiante
-exports.createStudent = async (req, res) => {
+//Ruta para consultar estudiantes
+exports.getStudent = async (req, res) => {
   try {
-    const { name, lastname } = req.body;
-    const estudiante = await Student.create({
+    const getStudent = await Student.findAll();
+    res.json({
+      data: getStudent,
+    });
+  } catch (error) {
+    console.log(error);
+    res.status(404).json({
+      message: "Error al mostrar datos " + error,
+    });
+  }
+};
+
+//Controlador de la ruta crear estudiante
+exports.createStudent = async (req, res) => {
+  const { name, lastname } = req.body;
+  try {
+    const newStudent = await Student.create({
       name,
       lastname,
     });
-    if (estudiante) {
-      console.log("Estudiante Agregado Correctamente");
+    if (newStudent) {
+      return res.json({
+        message: "Estudiante creado correctamente",
+        data: newStudent,
+      });
     }
   } catch (error) {
-    console.log("Error al guardar los datos " + error);
+    res.status(500).json({
+      message: "Algo ha salido mal",
+      data: {},
+    });
   }
-  res.redirect("/");
 };
 
-//Controlador para ver los estudiantes registrados
-exports.getStudent = async (req, res) => {
+//Controlador para consultar un estudiante
+exports.getOneStudent = async (req, res) => {
+  const { id } = req.params;
   try {
-    const estudiante = await Student.findAll()
-  .then(student => {
-    res.json(student)
-  })
+    const student = await Student.findOne({
+      where: {
+        id,
+      },
+    });
+    res.json({
+      data: student,
+    });
   } catch (error) {
-    console.log('Error para mostrar los datos ' + error)
+    console.log(error);
+    res.status(404).json({
+      message: "Algo ha salido mal",
+      data: {},
+    });
   }
-}
+};
+
+
+//controlador para eliminar estudiante
+exports.deleteStudent = async (req, res) => {
+  const { id } = req.params;
+  try {
+    const deleteRowCount = await Student.destroy({
+      where: {
+        id
+      },
+    });
+    res.json({
+      message: "Proyecto Eliminado Correctamente",
+      Count: deleteRowCount,
+    });
+  } catch (error) {
+    message: 'Error para eliminar ' + error
+    data: {}
+  }
+};
+
+
+//Controlador para actualizar estudiante
+exports.updateStudent = async (req, res) => {
+  const { id } = req.params;
+  const { name, lastname } = req.body;
+  try {
+    const students = await Student.findAll({
+      attributes:['id', 'name', 'lastname'],
+      where: {
+        id
+      },
+    });
+    if(students.length > 0) {
+      students.forEach(async (student) => {
+        await Student.update({
+          name,
+          lastname
+        });
+      });
+    }
+    return res.json({
+      message: "Proyecto Actualizado Correctamente",
+      data: students
+    });
+  } catch (error) {
+    message: "Error para actualizar " + error;
+    data: {
+    }
+  }
+};

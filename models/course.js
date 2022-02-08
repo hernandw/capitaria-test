@@ -8,7 +8,7 @@ Course.init({
         allowNull: false,
     },
     teacherId: {
-        type: DataTypes.INTEGER(2)
+        type: DataTypes.INTEGER
     }
 },{
     sequelize,

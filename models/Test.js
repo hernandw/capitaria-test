@@ -20,7 +20,7 @@ Test.init(
       },
     },
     courseId: {
-      type: DataTypes.INTEGER(2)
+      type: DataTypes.INTEGER
     }
   },
   {

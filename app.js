@@ -28,7 +28,7 @@ app.use(express.urlencoded({ extended: false}))
 app.use(express.json());
 
 //Rutas
-app.use(require('./routes/routesStudent'));
+app.use(require('./routes/student'));
 
 
 module.exports = app;

@@ -8,7 +8,7 @@ Student.init(
       type: DataTypes.STRING(60),
       allowNull: false,
       validate: {
-          isAlpha: {
+        isAlpha: {
           args: true,
           msg: "El nombre solo puede contener letras",
         },
