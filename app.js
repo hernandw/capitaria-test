@@ -30,4 +30,5 @@ app.use(express.json());
 //Rutas
 app.use(require('./routes/routesStudent'));
 
+
 module.exports = app;

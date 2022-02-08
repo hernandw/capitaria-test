@@ -5,12 +5,10 @@ class Teacher extends Model {}
 Teacher.init(
   {
     name: {
-      type: DataTypes.STRING,
+      type: DataTypes.STRING(60),
       allowNull: false,
       validate: {
-        isNull: {
-          msg: "El campo no debe ser nulo",
-        },
+        
         isAlpha: {
           args: true,
           msg: "El nombre solo puede contener letras",
@@ -22,12 +20,10 @@ Teacher.init(
       },
     },
     lastname: {
-      type: DataTypes.STRING,
+      type: DataTypes.STRING(60),
       allowNull: false,
       validate: {
-        isNull: {
-          msg: "El campo no debe ser nulo",
-        },
+        
         isAlpha: {
           args: true,
           msg: "El apellido solo puede contener letras",

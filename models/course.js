@@ -6,6 +6,9 @@ Course.init({
     name: {
         type: DataTypes.STRING(50),
         allowNull: false,
+    },
+    teacherId: {
+        type: DataTypes.INTEGER(2)
     }
 },{
     sequelize,
