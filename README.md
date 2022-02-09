@@ -44,7 +44,15 @@ https://github.com/hernandw/capitaria-test
 
 y a heroku, pero falta completar las vistas.
 
-### agenda semanal: no la completé aunque tengo idea de como ñlamar al json y ppr el dom enviarlo al html con sin tablas. No pude completar lo de las horas. Entiendo que una solución es transformar las horas a valores numéricos. Y con ccs grid poder asignar ese valor numérico como start.
+### agenda semanal: 
 
-### se agregó un archivo de texto con las rutas de test en postman
+No la completé aunque tengo idea de como llamar al json y por el dom enviarlo al html  sin tablas. No pude completar lo de las horas. Entiendo que una solución es transformar las horas a valores numéricos con una función. Y con ccs grid poder asignar ese valor numérico como start a la celda que corresponde.
+
+### POSTMAN:
+
+se agregó un archivo de texto con las rutas de test en postman
+
+### Base de Datos
+
+Se agregó el sql de la base de datos a la carpeta basededatos
 
