@@ -46,7 +46,7 @@ y a heroku, pero falta completar las vistas.
 
 ### agenda semanal: 
 
-Estoy investigando lo de como generar las horas, entiendo que una vez que logre cargar la agenda semanal en el DOM, debo hacer un ciclo para que cada nombre y hora se ubiquen en la hora correspondiente. Se como cargar la agenda semanal.
+Entiendo que hay que realizar una function que cargue las horas en el dia y hora correspondiente. Se cargó la agenda semanal. Investigo como generar la función en los dias correspondientes.
 
 ### POSTMAN:
 
