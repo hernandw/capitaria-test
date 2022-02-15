@@ -29,8 +29,16 @@ Se trabajó bajo el modelo MVC, creando un carpeta para los modelos o tablas.
 
 Carpeta Controller: Para manejar las peticiones y actuar de intermediario entre la vista y el modelo
 
-Vistas: No se realizaron, pero pensaba hacerlas en HBS (Express-Handlebars)
+Vistas: se utilizó el motor de plantilla EJS para visaulizar el calendario
 
+```
+npm i ejs
+```
+y la ruta para ver el caldendar
+
+```
+http://localhost:3000/calendar
+```
 
 Carpeta Routes: Se trabajó con una ruta para cada modelo.
 

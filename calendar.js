@@ -1,3 +1,3 @@
-const calendar = document.getElementById('calendar');
+<div id="calendar">
 
-calendar.innerHTML = 'Hola de prueba';
+</div>

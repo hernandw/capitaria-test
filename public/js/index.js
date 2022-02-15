@@ -1,7 +1,7 @@
 var calendar = document.querySelector('#calendar')
 
 const traerDatos = () => {
-  fetch('./assets/js/calendar.json')
+  fetch('./calendar.json')
  
   /* fetch('https://randomuser.me/api/') */
   .then(res => res.json())

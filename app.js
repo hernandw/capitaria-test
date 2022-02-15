@@ -13,6 +13,9 @@ require('./models/Associations');
 app.listen(PORT, ()=>{
     console.log(`Servidor encendido on port: ${PORT}`);
 
+    //Motor de Plantillas
+    app.set('view engine', 'ejs');
+    
     // conectarse a la BBDD
     sequelize.sync({ force: false}).then( () => {
         console.log('Nos hemos conectado a la BBDD');
@@ -33,6 +36,7 @@ app.use(require('./routes/test'));
 app.use(require('./routes/teacher'));
 app.use(require('./routes/course'));
 app.use(require('./routes/course_test'));
+app.use(require('./routes/calendar'));
 
 
 
