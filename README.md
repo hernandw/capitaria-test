@@ -34,7 +34,7 @@ Vistas: se utilizó el motor de plantilla EJS para visaulizar el calendario
 ```
 npm i ejs
 ```
-y la ruta para ver el caldendar
+y la ruta para ver el calendar
 
 ```
 http://localhost:3000/calendar

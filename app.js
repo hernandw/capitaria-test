@@ -8,14 +8,14 @@ const sequelize = require('./database/db')
 //Creación de las tablas
 require('./models/Associations');
 
+  //Motor de Plantillas
+  app.set('view engine', 'ejs');
 
 //Levantamiento del Servidor
 app.listen(PORT, ()=>{
     console.log(`Servidor encendido on port: ${PORT}`);
 
-    //Motor de Plantillas
-    app.set('view engine', 'ejs');
-    
+      
     // conectarse a la BBDD
     sequelize.sync({ force: false}).then( () => {
         console.log('Nos hemos conectado a la BBDD');
@@ -23,7 +23,8 @@ app.listen(PORT, ()=>{
         console.log('Se ha producido un error al conectarse ' + error)
     })
 });
-    //Archivos Estaticos
+
+//Archivos Estaticos
 app.use(express.static(__dirname + '/public'));
 
 //Middlewares
