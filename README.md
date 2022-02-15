@@ -46,7 +46,7 @@ y a heroku, pero falta completar las vistas.
 
 ### agenda semanal: 
 
-No la completé aunque tengo idea de como llamar al json y por el dom enviarlo al html  sin tablas. No pude completar lo de las horas. Entiendo que una solución es transformar las horas a valores numéricos con una función. Y con ccs grid poder asignar ese valor numérico como start a la celda que corresponde.
+Estoy investigando lo de como generar las horas, entiendo que una vez que logre cargar la agenda semanal en el DOM, debo hacer un ciclo para que cada nombre y hora se ubiquen en la hora correspondiente. Se como cargar la agenda semanal.
 
 ### POSTMAN:
 
