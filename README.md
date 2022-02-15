@@ -37,7 +37,7 @@ npm i ejs
 y la ruta para ver el calendar
 
 ```
-http://localhost:3000/calendar
+http://localhost:3000/
 ```
 
 Carpeta Routes: Se trabajó con una ruta para cada modelo.
@@ -50,7 +50,12 @@ Alli se guardaron las consultas solicitadas de la base de datos.
 Todo los archivos se subieron a git:
 https://github.com/hernandw/capitaria-test
 
-y a heroku, pero falta completar las vistas.
+heroku:
+https://capitaria.herokuapp.com/
+
+Nota: da error porque ya me consumí los dynos del mes.
+
+
 
 ### agenda semanal: 
 
